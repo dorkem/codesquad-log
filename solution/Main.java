@@ -3,11 +3,11 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Player a =  new Player("A");
-        Player b =  new Player("B");
-        List<Integer> list = Arrays.asList(0, 1, 2, 0, 0, 0, 1);
+        final int PLAYER_COUNT = 2;
 
-        DartGame dartGame = new DartGame(Arrays.asList(a, b));
-        dartGame.play();
+        List<Integer> points = Arrays.asList(0, 1, 2, 0, 0, 0, 1);
+
+        DartGame dartGame = new DartGame(PLAYER_COUNT);
+        dartGame.play(points);
     }
 }
