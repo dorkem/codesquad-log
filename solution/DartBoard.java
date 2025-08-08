@@ -4,7 +4,6 @@ import java.util.List;
 
 public class DartBoard {
     private List<Integer> pointRange;
-    private List<Integer> scores;
 
     private static final List<Integer> SCORES = new ArrayList<>(Arrays.asList(
                     20, 1, 18, 4, 13,
@@ -18,12 +17,7 @@ public class DartBoard {
         this.pointRange = pointRange;
     }
 
-    public void hitScore(List<Integer> scores) {
-        this.scores = scores;
-        // 3번 뭔가 호출되서 3번더해져야함
-    }
-
-    public int calculateScore(){
+    public int hitScore(List<Integer> scores){
         int total = 0;
 
         for (int index : scores) {

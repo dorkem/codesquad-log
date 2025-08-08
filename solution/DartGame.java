@@ -5,7 +5,6 @@ public class DartGame {
     private Player A;
     private Player B;
     private int peopleCount;
-    private int throwCount;
     private DartBoard dartBoard;
 
     private static final int THROW_COUNT = 3;
@@ -23,7 +22,7 @@ public class DartGame {
         int roundCount = calculateRoundCount(totalCount);
         throwDart(points, roundCount, totalCount);
 
-
+        printResult();
     }
 
     private int calculateRoundCount(int totalCount) {
@@ -61,6 +60,20 @@ public class DartGame {
             dartBoard.setPointSpot(pointRange);
             A.throwDart(dartBoard, AScores);
             B.throwDart(dartBoard, BScores);
+        }
+    }
+
+    private void printResult() {
+        int AScore = A.getScores();
+        int BScore = B.getScores();
+        System.out.println("A 점수 합: "+ A.getScores());
+        System.out.println("B 점수 합: "+ B.getScores());
+        if (AScore == BScore) {
+            System.out.println("무승부");
+        } else if (AScore > BScore) {
+            System.out.println("A승");
+        } else {
+            System.out.println("B승");
         }
     }
 }

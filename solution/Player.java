@@ -9,8 +9,14 @@ public class Player {
     }
 
     public void throwDart(DartBoard dartBoard, List<Integer> scores){
-        dartBoard.hitScore(scores);
+        this.scores += dartBoard.hitScore(scores);
     }
 
-    public void
+    public int getScores(){
+        return scores;
+    }
+
+    public String getName(){
+        return name;
+    }
 }
