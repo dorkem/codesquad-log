@@ -9,6 +9,7 @@ public class DartGame {
 
     private static final int THROW_COUNT = 3;
     private static final int ROUND_POINT = 1;
+    private static final int POINT_BOUND = 3;
 
     public DartGame(Player A, Player B, int peopleCount) {
         this.A = A;
@@ -40,25 +41,25 @@ public class DartGame {
     }
 
     private void throwDart(List<Integer> points, int roundCount, int totalCount) {
-        for (int round = 0; round < roundCount; round += totalCount / roundCount) {
-            int AStart = round;
-            int firstPointSpot = round + THROW_COUNT;
-            int BStart = round + THROW_COUNT + 1;
+        for (int round = 0; round < totalCount; round += totalCount / roundCount) {
+            System.out.println(" ");
+            System.out.println("Round" + ((round / 7)+1));
+			int AStart = round + 1;
+            int BStart = AStart + THROW_COUNT;
 
-            if (firstPointSpot > 19){
+            if (round > 19){
                 throw new IllegalArgumentException("21 이상의 점수는 없습니다.");
             }
 
             List<Integer> AScores = points.subList(AStart, AStart+THROW_COUNT);
-            List<Integer> pointRange = new ArrayList<>();
             List<Integer> BScores = points.subList(BStart, BStart+THROW_COUNT);
 
-            for (int i = 0; i < 3; i++) {
-                pointRange.add((round+THROW_COUNT + i) % 20);
-            }
-
-            dartBoard.setPointSpot(pointRange);
+            int centerIndex = points.get(round);
+            dartBoard.setPointSpot(centerIndex, POINT_BOUND);
+            System.out.println("A 점수 토탈!!");
             A.throwDart(dartBoard, AScores);
+
+            System.out.println("B 점수 토탈!!");
             B.throwDart(dartBoard, BScores);
         }
     }
@@ -66,6 +67,8 @@ public class DartGame {
     private void printResult() {
         int AScore = A.getScores();
         int BScore = B.getScores();
+
+        System.out.println(" ");
         System.out.println("A 점수 합: "+ A.getScores());
         System.out.println("B 점수 합: "+ B.getScores());
         if (AScore == BScore) {
@@ -75,5 +78,6 @@ public class DartGame {
         } else {
             System.out.println("B승");
         }
+        System.out.println(" ");
     }
 }

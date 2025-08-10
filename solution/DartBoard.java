@@ -13,8 +13,18 @@ public class DartBoard {
     ));
 
 
-    public void setPointSpot(List<Integer> pointRange) {
-        this.pointRange = pointRange;
+    public void setPointSpot(int pointfirstRange, int pointBound) {
+        List<Integer> converted = new ArrayList<>();
+
+        for(int i = 0; i < pointBound; i++){
+            converted.add((pointfirstRange + i)%20);
+        }
+
+        this.pointRange = converted;
+
+        System.out.println(
+            "맞춰야하는 점수: [" + pointRange.get(0) + ", " + pointRange.get(1) + ", " + pointRange.get(2)+"]"
+        );
     }
 
     public int hitScore(List<Integer> scores){
@@ -29,7 +39,7 @@ public class DartBoard {
                 total += scoreValue;
             }
         }
-
+        System.out.println(total);
         return total;
     }
 }
