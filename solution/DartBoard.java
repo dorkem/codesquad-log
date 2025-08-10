@@ -4,6 +4,7 @@ import java.util.List;
 
 public class DartBoard {
     private List<Integer> pointRange;
+    private static final int TOTAL_SCORE_RANGE = 20;
 
     private static final List<Integer> SCORES = new ArrayList<>(Arrays.asList(
                     20, 1, 18, 4, 13,
@@ -17,7 +18,7 @@ public class DartBoard {
         List<Integer> converted = new ArrayList<>();
 
         for(int i = 0; i < pointBound; i++){
-            converted.add((pointfirstRange + i)%20);
+            converted.add((pointfirstRange + i) % TOTAL_SCORE_RANGE);
         }
 
         this.pointRange = converted;

@@ -7,9 +7,10 @@ public class DartGame {
     private int peopleCount;
     private DartBoard dartBoard;
 
-    private static final int THROW_COUNT = 3;
-    private static final int ROUND_POINT = 1;
-    private static final int POINT_BOUND = 3;
+    private static final int THROW_COUNT = 3; // 1라운드당 던지는 횟수
+    private static final int ROUND_POINT = 1; // 범위를 지정하는 수 1개
+    private static final int POINT_BOUND = 3; // 범위는 총 3개
+    private static final int TOTAL_SCORE_RANGE = 20;
 
     public DartGame(Player A, Player B, int peopleCount) {
         this.A = A;
@@ -43,11 +44,11 @@ public class DartGame {
     private void throwDart(List<Integer> points, int roundCount, int totalCount) {
         for (int round = 0; round < totalCount; round += totalCount / roundCount) {
             System.out.println(" ");
-            System.out.println("Round" + ((round / 7)+1));
-			int AStart = round + 1;
+            System.out.println("Round" + ((round / (THROW_COUNT * peopleCount + ROUND_POINT)) + 1));
+			int AStart = round + ROUND_POINT;
             int BStart = AStart + THROW_COUNT;
 
-            if (round > 19){
+            if (round > TOTAL_SCORE_RANGE - 1){
                 throw new IllegalArgumentException("21 이상의 점수는 없습니다.");
             }
 
