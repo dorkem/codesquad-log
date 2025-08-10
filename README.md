@@ -17,7 +17,7 @@
 
 ### MISSION
 - Day01 - [[개발 환경 연습] 진수변환기](https://gist.github.com/dorkem/e699f300d75d2d587eca2f2bca71f3cb)
-- Day02 - [[다트 점수판]](https://gist.github.com/dorkem/e699f300d75d2d587eca2f2bca71f3cb)
+- Day02 - [[다트 점수판]](https://gist.github.com/dorkem/445ec6ac4a9ee39f57909b7c1a5e018e)
 - Day03 - [[알고리즘 문제]](https://gist.github.com/dorkem/e699f300d75d2d587eca2f2bca71f3cb)
 - Day04 - [[자동차 검색]](https://gist.github.com/dorkem/e699f300d75d2d587eca2f2bca71f3cb)
 - Day05 - [[럭키 카드 게임]](https://gist.github.com/dorkem/e699f300d75d2d587eca2f2bca71f3cb)
