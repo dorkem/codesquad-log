@@ -14,19 +14,24 @@ public class Card {
         }
     }
 
-    private String cardNumber;
+    private int number;
     private CardType cardType;
 
-    public Card(String cardNumber, CardType cardType) {
-        this.cardNumber = cardNumber;
+    public Card(int number, CardType cardType) {
+        this.number = number;
         this.cardType = cardType;
     }
 
-    public String getCardNumber() {
-        return cardNumber;
+    public int getNumber() {
+        return number;
     }
 
     public CardType getCardType() {
         return cardType;
+    }
+
+    @Override
+    public String toString() {
+        return cardType.getEmoji() + String.format("%02d", number);
     }
 }
